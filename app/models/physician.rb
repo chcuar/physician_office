@@ -1,5 +1,5 @@
 class Physician < ApplicationRecord
   validates :name, :specialty, presence: true
-  has many :appointments
-  has many :patients, through: :appointments
+  has_many :appointments
+  has_many :patients, through: :appointments
 end

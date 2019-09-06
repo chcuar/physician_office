@@ -1,0 +1,20 @@
+<h1 class='ui header'>Physicians</h1>
+
+<table class="ui celled table">
+  <thead>
+    <tr><th>Name</th>
+    <th>Specialty</th>
+    <th>Appointments</th>
+    <th>Delete</th>
+  </tr></thead>
+  <tbody>
+    <% @physicians.each do |p| %>
+      <tr>
+        <td data-label="Name"><%= p.name %></td>
+        <td data-label="Specialty"><%= p.specialty %></td>
+        <td><%= link_to "Show"%></td>
+        <td><%= link_to "Delete"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
