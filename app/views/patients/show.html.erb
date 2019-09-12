@@ -1,2 +1,27 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<h1> Patient: <%= @patient.name %></h1>
+
+<h4> Age: <%=@patient.age%> </br> Phone: <%= @patient.phone_number%> </h4>
+
+<h2> Appointments </h2>
+<table class="ui celled table">
+  <thead>
+    <tr><th>Doctor</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr></thead>
+  <tbody>
+    <% @appointment.each do |p| %>
+      <tr>
+        <td><%= link_to "Patient" %></td>
+        <td data-label="ID"><%= p.date %></td>
+        <td data-label="Name"><%= p.time %></td>
+        <td><%= link_to '<i class="edit outline icon"></i>'.html_safe, edit_physician_path(p.id) %></td>
+        <td><%= link_to '<i class="trash alternate icon"></i>'.html_safe, physician_path(p.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add Appointment" %>

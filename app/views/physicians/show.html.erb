@@ -1,22 +1,32 @@
-<h1 class='ui header'>Physician</h1>
+<h1> Doctor <%= @physician.name %></h1>
+<h4>Specialty: <%= @physician.specialty %></h4>
 
+<h2> Appointments </h2>
 <table class="ui celled table">
-
-<h1></h1>
   <thead>
-    <tr><th>Name</th>
-    <th>Specialty</th>
-    <th>Appointments</th>
+    <tr><th>Patient</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Edit</th>
     <th>Delete</th>
   </tr></thead>
   <tbody>
-    <% @physicians.each do |p| %>
+    <% @appointment.each do |p| %>
       <tr>
-        <td data-label="Name"><%= p.name %></td>
-        <td data-label="Specialty"><%= p.specialty %></td>
-        <td><%= link_to "Show"%></td>
-        <td><%= link_to "Delete"%></td>
+        <td><%= link_to "Patient" %></td>
+        <td data-label="ID"><%= p.date %></td>
+        <td data-label="Name"><%= p.time %></td>
+        <td><%= link_to '<i class="edit outline icon"></i>'.html_safe, edit_physician_path(p.id) %></td>
+        <td><%= link_to '<i class="trash alternate icon"></i>'.html_safe, physician_path(p.id), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "Add Appointment" %>
+
+
+
+
+
+

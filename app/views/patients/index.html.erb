@@ -1,4 +1,31 @@
-<h1>Patients</h1>
+<h1 class='ui header'>Patients</h1>
+
+<table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Phone Number</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr></thead>
+  <tbody>
+    <% @patients.each do |p| %>
+      <tr>
+        <td data-label="ID"><%= p.id %></td>
+        <td data-label="Name"><%= p.name %></td>
+        <td data-label="Age"><%= p.age %></td>
+        <td data-label="Phone Number"><%= p.phone_number %></td>
+        <td><%= link_to "Show", patient_path(p) %></td>
+        <td><%= link_to "Edit", edit_patient_path(p) %></td>
+        <td><%= link_to "Delete", p, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add Patient", new_patient_path %>
 
 
 

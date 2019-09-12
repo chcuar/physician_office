@@ -1,0 +1,15 @@
+<%= form_with(model: @physician, local: true, class: "ui form") do |f| %>
+<h1><%= @physician.id ? ('Edit Physician') : ('Add Physician') %></h1>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "Name" %>
+  </div>
+  <div class="field">
+    <div class="field">
+    <%= f.label :specialty %>
+    <%= f.select :specialty, ['Family Medicine', 'Cardiology', 'Obstetrics', 'Dermatology'], required: true, placeholder: "Specialty" %>
+  </div>
+  <div class="field">
+
+<%= f.submit nil, class: "i green button inverted"%>
+<% end %>

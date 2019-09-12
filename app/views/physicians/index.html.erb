@@ -2,19 +2,25 @@
 
 <table class="ui celled table">
   <thead>
-    <tr><th>Name</th>
+    <tr><th>ID</th>
+    <th>Name</th>
     <th>Specialty</th>
     <th>Appointments</th>
+    <th>Edit</th>
     <th>Delete</th>
   </tr></thead>
   <tbody>
     <% @physicians.each do |p| %>
       <tr>
+        <td data-label="ID"><%= p.id %></td>
         <td data-label="Name"><%= p.name %></td>
         <td data-label="Specialty"><%= p.specialty %></td>
-        <td><%= link_to "Show"%></td>
-        <td><%= link_to "Delete"%></td>
+        <td><%= link_to "Show", physician_path(p) %></td>
+        <td><%= link_to '<i class="edit outline icon"></i>'.html_safe, edit_physician_path(p.id) %></td>
+        <td><%= link_to '<i class="trash alternate icon"></i>'.html_safe, physician_path(p.id), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "Add Physician", new_physician_path %>

@@ -33,7 +33,6 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry'
-
   gem 'faker'
 end
 

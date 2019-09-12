@@ -1,12 +1,13 @@
 class PhysiciansController < ApplicationController
   before_action :set_physician, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   # anything that requires the id
   def index
     @physicians = Physician.all
   end
 
   def show
-    # don’t need because of the before action
+
   end
 
   def new
@@ -16,7 +17,7 @@ class PhysiciansController < ApplicationController
   def create
     @physician = Physician.new(physician_params)
     if @physician.save
-      redirect_to @physician
+      redirect_to physicians_path
     else
       render :new
     end
@@ -28,7 +29,7 @@ class PhysiciansController < ApplicationController
 
   def update
     if @physician.update(physician_params)
-      redirect_to @physician
+      redirect_to root_path
     else
       render :edit
     end
@@ -37,6 +38,7 @@ class PhysiciansController < ApplicationController
  def destroy
    @physician.destroy
    redirect_to physicians_path
+
  end
  
  
@@ -48,6 +50,10 @@ class PhysiciansController < ApplicationController
    def set_physician 
      @physician = Physician.find(params[:id])
      # this grabs which id you are currently selecting
+   end
+
+   def set_appointment
+    @appointment = @physician.appointments
    end
  
  end
