@@ -1,0 +1,18 @@
+<%= form_with(model: [@physician, @appointment], local: true, class: "ui form") do |f| %>
+<h1><%= @appointment.id ? ('Edit Appointment') : ('Add Appointment') %></h1>
+  <div class="field">
+  <%= f.label :patient %>
+  <%= f.select :patient_id, @patients.collect { |p| [p.name, p.id] } %>
+  </div>
+    <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :date, required: true, placeholder: "Date" %>
+  </div>
+  <div class="field">
+    <div class="field">
+    <%= f.label :time %>
+    <%= f.text_field :time, required: true, placeholder: "Time" %>
+  </div>
+
+<%= f.submit nil, class: "i green button inverted"%>
+<% end %>

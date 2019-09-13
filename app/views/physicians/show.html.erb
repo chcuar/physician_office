@@ -4,8 +4,7 @@
 <h2> Appointments </h2>
 <table class="ui celled table">
   <thead>
-    <tr><th>Patient</th>
-    <th>Date</th>
+    <tr><th>Date</th>
     <th>Time</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -13,7 +12,6 @@
   <tbody>
     <% @appointment.each do |p| %>
       <tr>
-        <td><%= link_to "Patient" %></td>
         <td data-label="ID"><%= p.date %></td>
         <td data-label="Name"><%= p.time %></td>
         <td><%= link_to '<i class="edit outline icon"></i>'.html_safe, edit_physician_path(p.id) %></td>
@@ -23,7 +21,7 @@
   </tbody>
 </table>
 
-<%= link_to "Add Appointment" %>
+<%= link_to "Add Appointment", new_physician_appointment_path(@physician.id) %>
 
 
 

@@ -11,6 +11,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    @patients = Patient.all - @physician.patients
     @appointment = @physician.appointments.new
   end
 

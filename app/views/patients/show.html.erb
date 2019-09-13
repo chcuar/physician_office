@@ -14,7 +14,6 @@
   <tbody>
     <% @appointment.each do |p| %>
       <tr>
-        <td><%= link_to "Patient" %></td>
         <td data-label="ID"><%= p.date %></td>
         <td data-label="Name"><%= p.time %></td>
         <td><%= link_to '<i class="edit outline icon"></i>'.html_safe, edit_physician_path(p.id) %></td>
@@ -24,4 +23,4 @@
   </tbody>
 </table>
 
-<%= link_to "Add Appointment" %>
+
